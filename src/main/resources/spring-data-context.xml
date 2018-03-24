@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="firstPlayer" class="solution.model.Player">
+        <constructor-arg value="Maxim"/>
+    </bean>
+
+    <bean id="secondPlayer" class="solution.model.Player">
+        <constructor-arg value="Ivan"/>
+    </bean>
+
+    <bean id="chessSet1" class="solution.model.ChessSet">
+        <constructor-arg index="0" ref="firstPlayer"/>
+        <constructor-arg index="1" ref="secondPlayer"/>
+        <constructor-arg index="2" value="_1_0"/>
+        <constructor-arg index="3" value="120"/>
+    </bean>
+
+    <bean id="chessSet2" class="solution.model.ChessSet">
+        <constructor-arg index="0" ref="firstPlayer"/>
+        <constructor-arg index="1" ref="secondPlayer"/>
+        <constructor-arg index="2" value="_1_0"/>
+        <constructor-arg index="3" value="120"/>
+    </bean>
+
+    <bean id="tableTennisSet1" class="solution.model.TableTennisSet">
+        <constructor-arg index="0" ref="firstPlayer"/>
+        <constructor-arg index="1" value="14"/>
+        <constructor-arg index="2" ref="secondPlayer"/>
+        <constructor-arg index="3" value="20"/>
+    </bean>
+
+    <bean id="tableTennisSet2" class="solution.model.TableTennisSet">
+        <constructor-arg index="0" ref="firstPlayer"/>
+        <constructor-arg index="1" value="14"/>
+        <constructor-arg index="2" ref="secondPlayer"/>
+        <constructor-arg index="3" value="20"/>
+    </bean>
+
+    <bean id="match" class="solution.model.Match">
+        <constructor-arg index="0" ref="firstPlayer"/>
+        <constructor-arg index="1" ref="secondPlayer"/>
+        <constructor-arg index="2">
+            <list>
+                <ref bean="chessSet1"/>
+                <ref bean="chessSet2"/>
+                <ref bean="tableTennisSet1"/>
+                <ref bean="tableTennisSet2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:configs.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!--
+    <bean id="cacheFileEventLogger" class="solution.utils.logging.impl.CacheFileEventLogger"
+          destroy-method="destroy" parent="fileEventLogger">
+
+        <constructor-arg index="1" type="java.lang.Integer" value="2"/>
+    </bean>
+    <bean id="fileEventLogger" class="solution.utils.logging.impl.FileEventLogger" init-method="init">
+        <constructor-arg value="./logs/fileEventLogs.txt"/>
+    </bean>
+
+    <bean id="consoleEventLogger" class="solution.utils.logging.impl.ConsoleEventLogger"/>
+
+    <bean id="event" class="solution.utils.logging.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+        </constructor-arg>
+    </bean> -->
+</beans>
