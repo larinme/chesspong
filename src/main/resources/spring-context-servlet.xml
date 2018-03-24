@@ -10,8 +10,7 @@
     <import resource="spring-log-context.xml"/>
 
     <bean id="contextProvider" class="solution.utils.configs.ApplicationContextProvider"/>
-    <context:annotation-config/>
-    <context:component-scan base-package="solution"/>
     <aop:aspectj-autoproxy/>
+    <context:component-scan base-package="solution"/>
 
 </beans>

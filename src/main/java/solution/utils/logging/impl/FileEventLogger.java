@@ -30,7 +30,8 @@ public class FileEventLogger implements EventLogger {
         this.file = new File(filename);
 
         if (!file.exists()){
-            file.createNewFile();
+            boolean newFile = file.createNewFile();
+            logMessage("File created = " + newFile);
         }
         boolean canWrite = file.canWrite();
         if (!canWrite) {
@@ -39,8 +40,16 @@ public class FileEventLogger implements EventLogger {
     }
 
     public void logEvent(Event event) {
+        append(event.toString());
+    }
+
+    public void logMessage(String message) {
+        append(message);
+    }
+
+    private void append(String text) {
         try {
-            FileUtils.writeStringToFile(file, event + "\n", Charset.defaultCharset(), true);
+            FileUtils.writeStringToFile(file, text + "\n", Charset.defaultCharset(), true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
