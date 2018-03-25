@@ -1,17 +1,17 @@
 package solution.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import solution.communication.CreateTournament;
 
 @Controller
 @RequestMapping("/tournament")
 public class TournamentController {
 
-
-    @RequestMapping(method = RequestMethod.GET, value = "createWithDefaultParticipants")
-    public String addParticipantsPage(ModelAndView modelAndView) {
+    @RequestMapping(value = "/createWithDefaultParticipants")
+    public String addParticipantsPage(@RequestBody CreateTournament controller) {
         return "index";
     }
 }

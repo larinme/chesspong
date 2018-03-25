@@ -10,8 +10,8 @@
 </head>
 <body>
  <form action="createWithDefaultParticipants">
-     <textarea id="participants-field" title="participants">Введите участников, разделяя переносом строки</textarea>
-    <br> <input type="submit" value="Создать турнир">
+     <textarea name="participants-field" id="participants-field" title="participants">Введите участников, разделяя переносом строки</textarea>
+    <br> <input type="submit" participants="Создать турнир">
  </form>
 </body>
 </html>
