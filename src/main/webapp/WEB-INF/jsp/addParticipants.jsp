@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="${mainCss}">
 </head>
 <body>
- <form action="/tournament/createWithDefaultParticipants">
+ <form action="createWithDefaultParticipants">
      <textarea id="participants-field" title="participants">Введите участников, разделяя переносом строки</textarea>
     <br> <input type="submit" value="Создать турнир">
  </form>
