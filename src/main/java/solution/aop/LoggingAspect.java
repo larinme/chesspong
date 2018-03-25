@@ -8,10 +8,14 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import solution.utils.logging.EventLogger;
 
+import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -35,13 +39,8 @@ public class LoggingAspect {
         String msg = "BEFORE: " + joinPoint.getTarget().getClass().getCanonicalName() +
                 " " + joinPoint.getSignature().getName();
 
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        Method method = signature.getMethod();
-        RequestMapping annotation = method.getAnnotation(RequestMapping.class);
-        if (annotation != null){
-            msg += (Arrays.toString(annotation.path()) + " VIA " + Arrays.toString(annotation.method()));
-        }
-        logger.logMessage(msg);
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+        logger.logMessage(msg + " " + request.getRequestURL());
     }
 
     @AfterReturning(pointcut = "allControllers()", returning = "retVal")

@@ -1,10 +1,10 @@
+<%@ page contentType="text/html;charset=utf-8" %>
 <html>
 <head>
-    <title>Hello Spring MVC</title>
+    <title>Шахпонг</title>
 </head>
-
 <body>
-<h2>${message}</h2>
+    <a href="tournament/createTournament" methods="GET">Создать турнир</a>
 </body>
 </html>
 
